@@ -5,7 +5,6 @@ import subprocess
 from pyvirtualdisplay import Display
 import sys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 start = time.time()
 INTERVAL_TIME = 1 #Interval time between queries
@@ -23,19 +22,14 @@ print(url)
 display = Display(visible=0, size=(800, 800))
 display.start()
 print("Started display")
-
-#Change path of binary
-binary = FirefoxBinary('/usr/bin/firefox')
-#Change resolver URL as required
-resolver_url = 'https://mozilla.cloudflare-dns.com/dns-query'
-#resolver_url = 'https://dns.google.com/experimental'
-
-fp = webdriver.FirefoxProfile()
-fp.DEFAULT_PREFERENCES['frozen']["network.trr.mode"] = 2
-fp.DEFAULT_PREFERENCES['frozen']["network.trr.uri"] = resolver_url
-driver = webdriver.Firefox(executable_path='/usr/bin/geckodriver', firefox_binary=binary, firefox_profile=fp)
-print("Started Firefox driver")
-
+options = webdriver.ChromeOptions()
+# brave browser
+options.binary_location = '/snap/bin/brave'
+options.add_argument('--headless')
+options.add_argument('--no-sandbox')
+driver = webdriver.Chrome('./chromedriver', options=options)
+driver.set_page_load_timeout(30)
+print("Started driver")
 url = 'http://' + url
 try:
 	driver.get(url)
