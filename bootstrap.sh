@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 sudo apt-get update
-sudo apt-get install -y python-pip xvfb libnss3-dev chromium-browser
+sudo apt-get install -y xvfb libnss3-dev chromium-browser
 
-sudo pip install selenium
-sudo pip install pyvirtualdisplay
+#sudo pip install selenium
+#sudo pip install pyvirtualdisplay
 
-sudo apt install /vagrant/cloudflared-stable-linux-amd64.deb
+sudo apt install ./vagrant/cloudflared-stable-linux-amd64.deb
 sudo mkdir -p /usr/local/etc/cloudflared
 sudo chmod 777 /usr/local/etc/cloudflared/
 sudo cat << EOF > /usr/local/etc/cloudflared/config.yaml

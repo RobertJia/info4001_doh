@@ -25,7 +25,7 @@ print("Started display")
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
 options.add_argument('--no-sandbox')
-driver = webdriver.Chrome('./chromedriver', chrome_options=options)
+driver = webdriver.Chrome('./chromedriver', options=options)
 driver.set_page_load_timeout(30)
 print("Started driver")
 url = 'http://' + url

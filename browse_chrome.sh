@@ -11,7 +11,7 @@ while true; do
                 echo $i
                 sudo /usr/sbin/tcpdump -i any "port 53 || host 1.1.1.1" -w ./pcaps/$d/$i.pcap &
                 sleep 2
-                python ./chrome_driver.py $i
+                python3 ./chrome_driver.py $i
                 sleep 2
                 sudo pkill tcpdump
                 sleep 2
