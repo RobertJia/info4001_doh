@@ -1,15 +1,15 @@
 #/usr/bin/bash
-while true; do
+#while true; do
         d=`date "+%d-%m-%y-%H%M%S"`
-        mkdir ./pcaps/
-        mkdir ./pcaps/$d
+        #mkdir ./pcaps/
+        mkdir ./pcaps/firefox/$d
         #sudo systemctl stop cloudflared
         #sleep 3
         sudo ln -sf /home/ubuntu/doh_traffic_analysis/code/collection/resolv.conf /etc/resolv.conf
         for i in $(seq 201 1486)
         do
                 echo $i
-                sudo /usr/sbin/tcpdump -i any "port 53 || host 1.1.1.1" -w ./pcaps/$d/$i.pcap &
+                sudo /usr/sbin/tcpdump -i any "port 53 || host 1.1.1.1" -w ./pcaps/firefox/$d/firefox$i.pcap &
                 sleep 2
                 python3 ./firefox_driver.py $i
                 sleep 2
@@ -20,4 +20,4 @@ while true; do
         done
         #sleep 300
         #sudo systemctl start cloudflared
-done
+#done
