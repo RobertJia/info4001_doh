@@ -21,10 +21,16 @@ url = urls[int(sys.argv[1])]
 print(url)
 #display = Display(visible=0, size=(800, 800))
 #display.start()
-#print("Started display")
+print("Started display")
 options = webdriver.ChromeOptions()
+# brave browser
+options.binary_location = '/usr/bin/midori'
 options.add_argument('--headless')
 options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
+options.add_argument('--ignore-certificate-errors')
+
+#options.add_argument('--remote-debugging-port=9222')
 driver = webdriver.Chrome('./chromedriver', options=options)
 driver.set_page_load_timeout(30)
 print("Started driver")
@@ -35,7 +41,7 @@ try:
 except TimeoutException as ex:
 	print(ex)
 driver.quit()
-#display.stop()
+display.stop()
 stop = time.time()
 print("Time taken:" + str(stop - start))
 time.sleep(INTERVAL_TIME)
