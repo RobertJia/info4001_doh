@@ -7,7 +7,7 @@
         #sleep 3
         #sudo ln -sf /home/ubuntu/doh_traffic_analysis/code/collection/resolv.conf /etc/resolv.conf
 
-        for i in $(seq 1 5)
+        for i in $(seq 0 4)
         do
                 echo $i
                 sudo /usr/sbin/tcpdump -i any "port 53 || host 1.1.1.1" -w ../pcaps/phantomjs/test_wk7/phantomjs$i.pcap &
