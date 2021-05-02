@@ -9,7 +9,7 @@
         for i in $(seq 201 1486)
         do
                 echo $i
-                sudo /usr/sbin/tcpdump -i any "port 53 || host 1.1.1.1" -w ./pcaps/phantomjs/$d/phantomjs$i.pcap &
+                sudo /usr/sbin/tcpdump -i any "port 53 || host 1.1.1.1" -w ./pcaps/opera/$d/opera$i.pcap &
                 sleep 2
                 python3 ./opera_driver.py $i
                 sleep 2
