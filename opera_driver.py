@@ -23,13 +23,11 @@ print(url)
 #display.start()
 #print("Started display")
 
-#options = webdriver.opera.options.Options()
-options = webdriver.ChromeOptions()
+driver = webdriver.opera.webdriver.OperaDriver(executable_path='./operadriver')
+options = driver.createOptions()
 options.add_argument('--headless')
 options.add_argument('--no-sandbox')
 options.binary_location = '/snap/bin/opera'
-driver = webdriver.Opera(options=options)
-#driver = webdriver.Chrome('./chromedriver', options=options)
 driver.set_page_load_timeout(30)
 print("Started driver")
 url = 'http://' + url

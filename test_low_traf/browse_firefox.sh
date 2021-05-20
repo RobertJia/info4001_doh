@@ -1,5 +1,5 @@
 #/usr/bin/bash
-while true; do
+#while true; do
         d=`date "+%d-%m-%y-%H%M%S"`
         #mkdir ./pcaps/
         mkdir ../pcaps/firefox/$d
@@ -21,4 +21,4 @@ while true; do
         done
         #sleep 300
         #sudo systemctl start cloudflared
-done
+#done
