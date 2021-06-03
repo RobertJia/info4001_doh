@@ -7,7 +7,7 @@
         #sleep 3
         #sudo ln -sf /home/ubuntu/doh_traffic_analysis/code/collection/resolv.conf /etc/resolv.conf
 
-        for i in $(seq 119 201)
+        for i in $(seq 0 201)
         do
                 echo $i
                 sudo /usr/sbin/tcpdump -i any "port 53 || host 1.1.1.1" -w ../pcaps/firefox/test_large_scale/firefox$i.pcap &
