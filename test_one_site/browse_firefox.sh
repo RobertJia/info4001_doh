@@ -2,7 +2,7 @@
 #while true; do
         #d=`date "+%d-%m-%y-%H%M%S"`
         #mkdir ./pcaps/
-        mkdir ../pcaps/chrome/test_one_site
+        mkdir ../pcaps/firefox/test_one_site
         #sudo systemctl stop cloudflared
         #sleep 3
         #sudo ln -sf /home/ubuntu/doh_traffic_analysis/code/collection/resolv.conf /etc/resolv.conf
